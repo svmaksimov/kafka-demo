@@ -1,0 +1,5 @@
+остановка с полной очисткой
+docker compose down -v
+
+запуск
+docker compose up -d
