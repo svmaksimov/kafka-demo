@@ -14,3 +14,13 @@ data/
 /tmp/
 *.class
 .continue/
+
+
+# Игнорируем результаты сборки Java
+kafka-replica-service/target/
+target/
+*.class
+
+# Игнорируем временные файлы VS Code и Continue
+.continue/
+.vscode/
