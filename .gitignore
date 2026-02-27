@@ -9,3 +9,8 @@ venv/
 data/
 *.log
 .continue/
+
+/target/
+/tmp/
+*.class
+.continue/

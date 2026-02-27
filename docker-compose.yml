@@ -106,6 +106,12 @@ services:
     command: >
       bash -c "
         kafka-topics --create --if-not-exists --bootstrap-server kafka1:29091 --topic orders --partitions 3 --replication-factor 3 &&
-        kafka-topics --create --if-not-exists --bootstrap-server kafka1:29091 --topic alerts --partitions 3 --replication-factor 3"
+        kafka-topics --create --if-not-exists --bootstrap-server kafka1:29091 --topic alerts --partitions 3 --replication-factor 3 &&
+        kafka-topics --create --if-not-exists --bootstrap-server kafka1:29091 --topic user-catalog \
+          --partitions 3 --replication-factor 3 \
+          --config cleanup.policy=compact \
+          --config delete.retention.ms=100 \
+          --config min.cleanable.dirty.ratio=0.01 &&
+        echo 'All topics created!'"
     networks:
       - kafka-network
